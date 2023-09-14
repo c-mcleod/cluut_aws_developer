@@ -1,0 +1,11 @@
+{
+  "TableName": "feedback",
+  "Item": {
+    "feedbackID.$": "$.body.feedbackID",
+    "customerName.$": "$.body.customerName",
+    "customerType.$": "$.body.customerType",
+    "sentiment.$": "$.body.sentiment",
+    "date.$": "$.body.date",
+    "time.$": "$.body.time"
+  }
+}

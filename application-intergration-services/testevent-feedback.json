@@ -1,0 +1,16 @@
+{
+  "customerName": "Marlon Fernandez",
+  "customerType": "Premium",
+  "feedback": "I had a horrible experience. Never again!"
+}
+
+
+{
+  "body": "{\"customerName\": \"Marlon Fernandez\", \"customerType\": \"Premium\", \"feedback\": \"I had a horrible experience. Never again!\"}",
+  "resource": "/my-resource",
+  "httpMethod": "POST",
+  "headers": {
+    "Content-Type": "application/json"
+  }
+}
+

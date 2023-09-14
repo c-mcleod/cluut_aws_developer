@@ -1,0 +1,31 @@
+src/redis-cli -h arn:aws:elasticache:eu-central-1:573405351055:cluster:gameanalytics-cache-001 --tls -p 6379
+
+openssl s_client -connect arn:aws:elasticache:eu-central-1:573405351055:cluster:gameanalytics-cache-001:6379
+
+redis-cli -h arn:aws:elasticache:eu-central-1:573405351055:cluster:gameanalytics-cache-001 -p 6379
+
+#10 highest rated games (minimum 100 voters).
+SELECT title, year, genre, rating, votes
+FROM ratings
+WHERE votes >= 100
+ORDER BY rating DESC
+LIMIT 10;
+
+#10 lowest rated games (minimum 100 voters).
+SELECT title, year, genre, rating, votes
+FROM ratings
+WHERE votes >= 100
+ORDER BY rating ASC
+LIMIT 10;
+
+#Number of video games per genre
+SELECT genre, COUNT(*) AS game_count
+FROM ratings
+GROUP BY genre
+ORDER BY game_count DESC;
+
+#Number of video games per year
+SELECT year, COUNT(*) AS game_count
+FROM ratings
+GROUP BY year
+ORDER BY year DESC;

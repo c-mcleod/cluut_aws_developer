@@ -1,0 +1,11 @@
+"""Distribution of orders per month."""
+SELECT COUNT(orderNumber) as Orders, MONTH(orderDate) as Month FROM orders GROUP BY MONTH(orderDate); 
+
+"""Best customers based on most orders."""
+SELECT customerName as Customer, COUNT(orderNumber) as Orders FROM orders INNER JOIN customers USING (customerNumber) GROUP BY customerName ORDER BY COUNT(orderNumber) DESC LIMIT 10;
+
+"""Busiest sales rep based on most customers."""
+SELECT firstName AS First_Name, lastName AS Last_Name, COUNT(salesRepEmployeeNumber) AS Number_Customers FROM customers INNER JOIN employees ON salesRepEmployeeNumber = employeeNumber GROUP BY employeeNumber ORDER BY COUNT(salesRepEmployeeNumber) DESC LIMIT 10;
+
+"""Customer Overview with number of customers per land"""
+SELECT country AS Country, COUNT(customerNumber) AS Number_of_Customers FROM customers GROUP BY country ORDER BY country;
